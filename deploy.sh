@@ -10,10 +10,10 @@ mkdir -p ${SOFT_DIR}/bin ${SOFT_DIR}/lib
 cp -rvf ${WORKSPACE}/htk/bin.cpu/* ${SOFT_DIR}/bin
 LIBDIRS=(HLMLib HTKLib)
 for libdir in ${LIBDIRS[@]} ; do
-  cd ${WORKSPACE}/htk/${libdir}/lib
-  cp -vf * ${SOFT_DIR}/lib
+  cp -v ${WORKSPACE}/htk/${libdir}/lib/* ${SOFT_DIR}/lib
 done
 
+cd ${WORKSPACE}
 
 mkdir -p ${LIBRARIES_MODULES}/${NAME}
 (
