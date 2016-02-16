@@ -73,6 +73,7 @@ done
 echo "Building HDecode"
 
 cd ${WORKSPACE}/htk/HTKLVRec
+make -f MakefileCPU
 make -f MakefileCPU install
 
 cd ${WORKSPACE}/htk
