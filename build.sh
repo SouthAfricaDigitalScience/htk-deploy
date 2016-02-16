@@ -62,7 +62,7 @@ tar xzf ${SRC_DIR}/${DECODE_SOURCE_FILE} -C ${WORKSPACE} --skip-old-files
 cd ${WORKSPACE}/htk
 
 # now, we build it all :)
-HTK_BITS=(HLMLib HLMTools HTKLib HTKTools)
+HTK_BITS=(HTKLib HLMLib HLMTools HTKTools)
 for bit in ${HTK_BITS[@]} ; do
   cd $bit
   echo "Building ${bit}"
