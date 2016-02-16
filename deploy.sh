@@ -28,7 +28,7 @@ proc ModulesHelp { } {
 
 module-whatis   "$NAME $VERSION."
 setenv       HTK_VERSION       $VERSION
-setenv       HTK_DIR           /apprepo/$::env(SITE)/$::env(OS)/$::env(ARCH)/$NAME/$VERSION
+setenv       HTK_DIR           $::env(CVMFS_DIR)$::env(SITE)/$::env(OS)/$::env(ARCH)/$NAME/$VERSION
 prepend-path PATH              $::env(HTK_DIR)/bin
 prepend-path LD_LIBRARY_PATH   $::env(HTK_DIR)/lib
 MODULE_FILE
