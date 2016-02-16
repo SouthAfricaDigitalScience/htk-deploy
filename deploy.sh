@@ -4,7 +4,7 @@
 echo ${SOFT_DIR}
 module add deploy
 echo ${SOFT_DIR}
-cd ${WORKSPACE}/htk
+cd ${WORKSPACE}/
 echo "All tests have passed, will now build into ${SOFT_DIR}"
 mkdir -p ${SOFT_DIR}/bin ${SOFT_DIR}/lib
 cp -rvf ${WORKSPACE}/htk/bin.cpu/* ${SOFT_DIR}/bin
@@ -15,7 +15,7 @@ done
 
 cd ${WORKSPACE}
 
-mkdir -p ${LIBRARIES_MODULES}/${NAME}
+mkdir -p modules
 (
 cat <<MODULE_FILE
 #%Module1.0
@@ -32,7 +32,7 @@ setenv       HTK_DIR           /apprepo/$::env(SITE)/$::env(OS)/$::env(ARCH)/$NA
 prepend-path PATH              $::env(HTK_DIR)/bin
 prepend-path LD_LIBRARY_PATH   $::env(HTK_DIR)/lib
 MODULE_FILE
-) > ${LIBRARIES_MODULES}/${NAME}/${VERSION}
+) > modules/$VERSION
 
 
 mkdir -p ${LIBRARIES_MODULES}/${NAME}
