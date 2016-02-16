@@ -17,10 +17,10 @@ htk/bin.cpu/HParse gram wdnet
 echo "Installing to ${SOFT_DIR}"
 mkdir -p ${SOFT_DIR}/bin ${SOFT_DIR}/lib
 # bin.CPU is because we're using the CPU makefiles. We could parametrise this later
-cp -rvf ${WORKSPACE}/bin.cpu/* ${SOFT_DIR}/bin 
+cp -rvf ${WORKSPACE}/htk/bin.cpu/* ${SOFT_DIR}/bin
 LIBDIRS=(HLMLib HTKLib)
 for libdir in ${LIBDIRS[@]} ; do
-  cd ${libdir}/lib
+  cd ${WORKSPACE}/htk/${libdir}/lib
   cp -vf * ${SOFT_DIR}/lib
 done
 echo "making modules"

@@ -7,7 +7,7 @@ echo ${SOFT_DIR}
 cd ${WORKSPACE}/htk
 echo "All tests have passed, will now build into ${SOFT_DIR}"
 mkdir -p ${SOFT_DIR}/bin ${SOFT_DIR}/lib
-cp -rvf ${WORKSPACE}/bin.cpu/* ${SOFT_DIR}/bin
+cp -rvf ${WORKSPACE}/htk/bin.cpu/* ${SOFT_DIR}/bin
 LIBDIRS=(HLMLib HTKLib)
 for libdir in ${LIBDIRS[@]} ; do
   cd ${libdir}/lib
