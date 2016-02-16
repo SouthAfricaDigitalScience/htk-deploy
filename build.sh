@@ -22,6 +22,7 @@ mkdir -p ${WORKSPACE}
 mkdir -p ${SRC_DIR}
 #  Download HTK the source file
 echo "Checking ${NAME} source"
+echo "wget --user ${LICENSE_USER} --password  ${LICENSE_PASS} http://htk.eng.cam.ac.uk/ftp/software/HTK-${VERSION}.tar.gz -O ${SRC_DIR}/${SOURCE_FILE}"
 if [ ! -e ${SRC_DIR}/${SOURCE_FILE}.lock ] && [ ! -s ${SRC_DIR}/${SOURCE_FILE} ] ; then
   touch  ${SRC_DIR}/${SOURCE_FILE}.lock
   echo "seems like this is the first build - let's geet the source"
