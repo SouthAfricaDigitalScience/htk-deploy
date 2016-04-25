@@ -64,6 +64,12 @@ cd ${WORKSPACE}/htk
 echo "setting 64bit in CFLAGS"
 sed -i  's/-m32/-m64/g' configure
 ./configure  --prefix=${SOFT_DIR}
+
+# For some wierd reason, HLMTools' makefile doesn't have 4 tabs at the last target
+echo "Fixing HLMTools Makefile"
+sed -i 's/        /\t/g' HLMTools/Makefile
+
+echo "Building all standard tools"
 make all
 
 echo "Building HDecode"
