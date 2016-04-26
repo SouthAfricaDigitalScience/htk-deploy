@@ -63,7 +63,9 @@ cd ${WORKSPACE}/htk
 
 echo "setting 64bit in CFLAGS"
 sed -i  's/-m32/-m64/g' configure
-./configure  --prefix=${SOFT_DIR}
+./configure  --prefix=${SOFT_DIR} \
+             --disable-x \
+             --enable-hdecode
 
 # For some wierd reason, HLMTools' makefile doesn't have 4 tabs at the last target
 echo "Fixing HLMTools Makefile"
@@ -73,8 +75,7 @@ echo "Building all standard tools"
 make all
 
 echo "Building HDecode"
-
-cd ${WORKSPACE}/htk/HTKLVRec
+make hdecode
 
 cd ${WORKSPACE}/htk
 
@@ -85,4 +86,4 @@ echo "Containing "
 find  . -name "lib" -exec ls {} \;
 
 echo "We have in bin :"
-ls bin.cpu
+find . -type f -executable -exec file -i '{}' \; | grep 'x-executable; charset=binary'
