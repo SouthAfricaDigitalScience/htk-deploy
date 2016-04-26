@@ -2,7 +2,6 @@
 # Check build file for HTK
 . /etc/profile.d/modules.sh
 module load ci
-cd ${WORKSPACE}/htk/samples/HTKDemo/
 # no checks yet - this should include the demo bits, but it looks like the data is missing.
 # TODO
 echo $?
