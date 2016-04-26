@@ -5,16 +5,30 @@ echo ${SOFT_DIR}
 module add deploy
 echo ${SOFT_DIR}
 cd ${WORKSPACE}/
-echo "All tests have passed, will now build into ${SOFT_DIR}"
-mkdir -p ${SOFT_DIR}/bin ${SOFT_DIR}/lib
-cp -rvf ${WORKSPACE}/htk/bin.cpu/* ${SOFT_DIR}/bin
-LIBDIRS=(HLMLib HTKLib)
-for libdir in ${LIBDIRS[@]} ; do
-  cp -v ${WORKSPACE}/htk/${libdir}/lib/* ${SOFT_DIR}/lib
-done
+echo "All tests have passed, will now clean and reconfigure to build into ${SOFT_DIR}"
 
-cd ${WORKSPACE}
+make distclean
 
+echo "setting 64bit in CFLAGS"
+sed -i  's/-m32/-m64/g' configure
+./configure  --prefix=${SOFT_DIR} \
+             --disable-x \
+             --enable-hdecode
+
+# For some wierd reason, HLMTools' makefile doesn't have 4 tabs at the last target
+echo "Fixing HLMTools Makefile"
+sed -i 's/        /\t/g' HLMTools/Makefile
+
+echo "Building all standard tools"
+make all
+
+echo "Building HDecode"
+make hdecode
+
+echo "Installing"
+
+make install
+make install-hdecode
 mkdir -p modules
 (
 cat <<MODULE_FILE

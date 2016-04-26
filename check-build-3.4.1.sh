@@ -9,19 +9,18 @@ echo $?
 
 # Runing the tutorial at http://www1.icsi.berkeley.edu/Speech/docs/HTKBook
 echo "Creating a small word network from sample grammar"
-cd ${WORKSPACE}/
-htk/bin.cpu/HParse gram wdnet
+cd ${WORKSPACE}/HTKTools
+HParse ../../gram wdnet
 # TODO
 
 # Put stuff in ${SOFT_DIR}
 echo "Installing to ${SOFT_DIR}"
-mkdir -p ${SOFT_DIR}/bin ${SOFT_DIR}/lib
-# bin.CPU is because we're using the CPU makefiles. We could parametrise this later
-cp -rvf ${WORKSPACE}/htk/bin.cpu/* ${SOFT_DIR}/bin
-LIBDIRS=(HLMLib HTKLib)
-for libdir in ${LIBDIRS[@]} ; do
-  cp ${WORKSPACE}/htk/${libdir}/lib/* ${SOFT_DIR}/lib
-done
+
+make install
+echo "Installing HDecode"
+make install-hdecode
+
+# The libs are not put anywhere - not sure if this is a problem.
 cd ${WORKSPACE}
 echo "making modules"
 mkdir -p modules
