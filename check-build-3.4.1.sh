@@ -9,7 +9,7 @@ echo $?
 # Runing the tutorial at http://www1.icsi.berkeley.edu/Speech/docs/HTKBook
 echo "Creating a small word network from sample grammar"
 cd ${WORKSPACE}/htk/HTKTools
-HParse ../../gram wdnet
+./HParse ../../gram wdnet
 # TODO
 
 # Put stuff in ${SOFT_DIR}
