@@ -19,7 +19,7 @@ echo "Installing to ${SOFT_DIR}"
 mkdir -vp ${SOFT_DIR}
 make install
 echo "Installing HDecode"
-make install-hdecode
+make install hdecode
 
 # The libs are not put anywhere - not sure if this is a problem.
 cd ${WORKSPACE}
