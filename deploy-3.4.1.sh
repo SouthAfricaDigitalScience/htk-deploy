@@ -26,7 +26,7 @@ echo "Building HDecode"
 make hdecode
 
 echo "Installing"
-
+mkdir -vp ${SOFT_DIR}
 make install
 make install-hdecode
 mkdir -p modules
