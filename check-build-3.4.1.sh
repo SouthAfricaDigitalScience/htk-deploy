@@ -17,6 +17,7 @@ echo "Installing to ${SOFT_DIR}"
 # Build 30 died with mkdir: cannot create directory ‘/apprepo/generic/u1404/x86_64/htk/3.4.1/bin’: No such file or directory
 # so, apparently, we need to make this dir ourselves - smh
 mkdir -vp ${SOFT_DIR}
+cd ${WORKSPACE}/htk
 make install
 echo "Installing HDecode"
 make install-hdecode
