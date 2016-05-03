@@ -8,7 +8,7 @@ echo $?
 
 # Runing the tutorial at http://www1.icsi.berkeley.edu/Speech/docs/HTKBook
 echo "Creating a small word network from sample grammar"
-cd ${WORKSPACE}/${NAME}-${VERSION}/htk/HTKTools
+cd ${WORKSPACE}/htk/HTKTools
 HParse ../../gram wdnet
 # TODO
 
