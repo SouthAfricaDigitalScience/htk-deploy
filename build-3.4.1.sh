@@ -81,7 +81,7 @@ cd ${WORKSPACE}/htk
 
 echo "Done - we have libs in"
 
-find . -name  "lib*"
+find . -name  "lib"
 echo "Containing "
 find  . -name "lib" -exec ls {} \;
 
