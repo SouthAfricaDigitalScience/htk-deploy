@@ -4,7 +4,7 @@
 echo ${SOFT_DIR}
 module add deploy
 echo ${SOFT_DIR}
-cd ${WORKSPACE}/
+cd ${WORKSPACE}/htk
 echo "All tests have passed, will now clean and reconfigure to build into ${SOFT_DIR}"
 
 make distclean
