@@ -1,7 +1,7 @@
 #!/bin/bash -e
 # Check build file for HTK
 . /etc/profile.d/modules.sh
-module load ci
+module add ci
 cd ${WORKSPACE}/htk/samples/HTKDemo/
 # no checks yet - this should include the demo bits, but it looks like the data is missing.
 # TODO
@@ -20,7 +20,7 @@ mkdir -p ${SOFT_DIR}/bin ${SOFT_DIR}/lib
 cp -rvf ${WORKSPACE}/htk/bin.cpu/* ${SOFT_DIR}/bin
 LIBDIRS=(HLMLib HTKLib)
 for libdir in ${LIBDIRS[@]} ; do
-  cp ${WORKSPACE}/htk/${libdir}/lib/* ${SOFT_DIR}/lib
+  cp -v ${WORKSPACE}/htk/${libdir}/lib/* ${SOFT_DIR}/lib
 done
 cd ${WORKSPACE}
 echo "making modules"
@@ -37,7 +37,7 @@ proc ModulesHelp { } {
 
 module-whatis   "$NAME $VERSION."
 setenv       HTK_VERSION       $VERSION
-setenv       HTK_DIR           /apprepo/$::env(SITE)/$::env(OS)/$::env(ARCH)/$NAME/$VERSION
+setenv       HTK_DIR           /data/ci-build/$::env(SITE)/$::env(OS)/$::env(ARCH)/$NAME/$VERSION
 prepend-path PATH              $::env(HTK_DIR)/bin
 prepend-path LD_LIBRARY_PATH   $::env(HTK_DIR)/lib
 

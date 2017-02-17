@@ -1,7 +1,7 @@
 #!/bin/bash -e
 # Check build file for HTK
 . /etc/profile.d/modules.sh
-module load ci
+module add ci
 # no checks yet - this should include the demo bits, but it looks like the data is missing.
 # TODO
 echo $?
@@ -14,7 +14,7 @@ cd ${WORKSPACE}/htk/HTKTools
 
 # Put stuff in ${SOFT_DIR}
 echo "Installing to ${SOFT_DIR}"
-# Build 30 died with mkdir: cannot create directory ‘/apprepo/generic/u1404/x86_64/htk/3.4.1/bin’: No such file or directory
+# Build 30 died with mkdir: cannot create directory ‘/data/ci-build/generic/u1404/x86_64/htk/3.4.1/bin’: No such file or directory
 # so, apparently, we need to make this dir ourselves - smh
 mkdir -vp ${SOFT_DIR}
 cd ${WORKSPACE}/htk
@@ -38,7 +38,7 @@ proc ModulesHelp { } {
 
 module-whatis   "$NAME $VERSION."
 setenv       HTK_VERSION       $VERSION
-setenv       HTK_DIR           /apprepo/$::env(SITE)/$::env(OS)/$::env(ARCH)/$NAME/$VERSION
+setenv       HTK_DIR           /data/ci-build/$::env(SITE)/$::env(OS)/$::env(ARCH)/$NAME/$VERSION
 prepend-path PATH              $::env(HTK_DIR)/bin
 prepend-path LD_LIBRARY_PATH   $::env(HTK_DIR)/lib
 
