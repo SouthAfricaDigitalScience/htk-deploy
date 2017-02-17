@@ -79,11 +79,11 @@ make hdecode
 
 cd ${WORKSPACE}/htk
 
-echo "Done - we have libs in"
-
-find . -name  "lib"
-echo "Containing "
-find  . -name "lib" -exec ls {} \;
-
-echo "We have in bin :"
-find . -type f -executable -exec file -i '{}' \; | grep 'x-executable; charset=binary'
+# echo "Done - we have libs in"
+#
+# find . -name  "lib"
+# echo "Containing "
+# find  . -name "lib" -exec ls {} \;
+#
+# echo "We have in bin :"
+# find . -type f -executable -exec file -i '{}' \; | grep 'x-executable; charset=binary'
